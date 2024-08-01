@@ -3,8 +3,15 @@
 let cards = document.querySelectorAll(".card");
 
 window.onscroll = () => {
-  let scrollHeight = window.innerHeight + window.screenY;
+  cardAnim();
+};
+
+function cardAnim() {
+  //getting screen height
+  let scrollHeight = window.innerHeight;
+
   cards.forEach((card) => {
+    //getting card top
     let cardTop = card.getBoundingClientRect().top + card.offsetHeight / 2;
 
     if (cardTop < scrollHeight) {
@@ -13,4 +20,6 @@ window.onscroll = () => {
       card.classList.remove("anim");
     }
   });
-};
+}
+
+cardAnim();
